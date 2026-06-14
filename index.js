@@ -5,7 +5,15 @@ const express = require('express');
 const logger = require('./src/logger');
 const { SYSTEM_PROMPT } = require('./src/prompt');
 const { getHistory, addToHistory, clearHistory } = require('./src/memory');
-const { formatError, isValidMessage, getTimeGreeting } = require('./src/utils');
+const { formatError, isValidMessage } = require('./src/utils');
+
+// ─── getTimeGreeting defined here (fixes "not a function" error) ──────────────
+function getTimeGreeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Akkam bulte! ☀️';
+  if (hour < 17) return 'Akkam ooltee! 🌤️';
+  return 'Akkam bultee? 🌙';
+}
 
 // ─── Validate Environment ─────────────────────────────────────────────────────
 ['TELEGRAM_TOKEN', 'GEMINI_API_KEY'].forEach((key) => {
@@ -15,7 +23,7 @@ const { formatError, isValidMessage, getTimeGreeting } = require('./src/utils');
   }
 });
 
-// ─── Health Server (required for Render) ──────────────────────────────────────
+// ─── Health Server ────────────────────────────────────────────────────────────
 const app  = express();
 const PORT = process.env.PORT || 3000;
 app.get('/',       (_, res) => res.json({ status: '💛 TamuAI Online', uptime: Math.floor(process.uptime()) + 's' }));
@@ -30,7 +38,7 @@ logger.info('TamuAI starting...');
 // ─── Gemini Model Factory ─────────────────────────────────────────────────────
 function getModel() {
   return genAI.getGenerativeModel({
-    model: 'gemini-2.0-flash',
+    model: 'gemini-2.0-flash-lite',   // ✅ FIXED: free tier model
     systemInstruction: SYSTEM_PROMPT,
     generationConfig: {
       temperature: 0.92,
@@ -104,7 +112,6 @@ bot.on('message', async (msg) => {
   bot.sendChatAction(chatId, 'typing');
   logger.info(`[${chatId}] "${userMsg?.substring(0, 60)}"`);
 
-  // Natural human-like thinking delay 1–2.5 seconds
   await new Promise(r => setTimeout(r, 1000 + Math.random() * 1500));
   bot.sendChatAction(chatId, 'typing');
 
@@ -117,7 +124,6 @@ bot.on('message', async (msg) => {
 
     addToHistory(chatId, userMsg, reply);
 
-    // Send with Markdown, fallback to plain if parsing fails
     try {
       await bot.sendMessage(chatId, reply, { parse_mode: 'Markdown' });
     } catch {
