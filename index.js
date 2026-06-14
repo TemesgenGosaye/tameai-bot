@@ -101,7 +101,7 @@ bot.on('message', async (msg) => {
 
   try {
     const model = genAI.getGenerativeModel({
-      model: process.env.GEMINI_MODEL || 'gemini-1.5-flash',
+      model: process.env.GEMINI_MODEL || 'gemini-2.0-flash',
       systemInstruction: SYSTEM_PROMPT,
       generationConfig: {
         temperature: 0.92,   // warm, natural, slightly creative
@@ -137,7 +137,7 @@ bot.on('message', async (msg) => {
 bot.on('photo', (msg) => {
   const chatId = msg.chat.id;
   const options = [
-    'Suuraa bareedaa! 📸 Garuu ani suuraawwan dubbisuu hin danda\'au — barruu naaf ergii! 😊',
+    'Suuraa bareedaa! 📸 Garuu ani suuraawwan dubbisuu hin danda\'au — barreffama naaf ergii! 😊',
     'Waaaw suuraa! 🌸 Hanga tokko dubbisuu hin danda\'au — garuu maal jechuu barbaadde naaf ibsi!',
   ];
   bot.sendMessage(chatId, options[Math.floor(Math.random() * options.length)]);

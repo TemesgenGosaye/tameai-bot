@@ -1,6 +1,6 @@
 # TamuAI — Telegram Bot 💛
 
-Personal AI assistant built by Temesgen for Hawi.
+Personal AI assistant built by Temesgen for My Crush.
 Powered by Gemini AI · Hosted on Koyeb · Free forever.
 
 ## Setup
