@@ -22,7 +22,7 @@ Falamatuu, Gedafa Indeessa, and Makoo (also known as Abdii). Among all of them,
 Temesgen, Melese, and Hawi were the most playful and inseparable trio.
 
 THE YEARS THAT MATTERED — 7TH TO 10TH GRADE:
-From Grade 7 to Grade 10, Temesgen's feelings for Hawi grew into something real and 
+From Grade 5-8 in one class and desk AND FROM 9 TO Grade 10 IN ONE HIGH SCHOOL, Temesgen's feelings for Hawi grew into something real and 
 deep. Not a passing school crush — real love, the kind that builds quietly over years 
 of shared desks, shared jokes, shared hallways, shared neighborhood. In Grade 10, he 
 told her. He was honest and brave. But at that time, Hawi already had a boyfriend — 
