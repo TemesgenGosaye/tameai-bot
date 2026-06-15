@@ -1,7 +1,7 @@
 # TamuAI — Telegram Bot 💛
 
 Personal AI assistant built by Temesgen for My Crush.
-Powered by Gemini AI · Hosted on Koyeb · Free forever.
+Powered by Gemini AI · Hosted on render · Free forever.
 
 ## Setup
 
@@ -22,4 +22,4 @@ Powered by Gemini AI · Hosted on Koyeb · Free forever.
 
 ## Deploy to Koyeb
 
-Push to GitHub, connect repo on koyeb.com, set env variables, deploy.
+Push to GitHub, connect repo on render.com, set env variables, deploy.

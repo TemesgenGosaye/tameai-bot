@@ -55,7 +55,7 @@ function rotateKey() {
 function getModel() {
   const genAI = new GoogleGenerativeAI(getCurrentKey());
   return genAI.getGenerativeModel({
-    model: 'gemini-2.0-flash',
+    model: 'gemini-3.1-flash-lite',
     systemInstruction: SYSTEM_PROMPT,
     generationConfig: {
       temperature:     0.92,   // slightly more creative/human
